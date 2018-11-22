@@ -1,33 +1,13 @@
-{% load static %}\
-<html>
-        
-    <head>
-        
-        <title>Dois pontos</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    </head>
-    <body>
-        
-        <div>
-            <h1><a href="/">Meu nome é ellen 2..Eu arraso</a></h1>
-        
-        </div>
+{% extends 'blog/base.html' %}
 
-        {% for post in posts %}
-        <div>
-            <p>publicado: 14.06.2014, 12:14</p>
-            <h2><a href="">Ellen 2..Arrasa!</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-
-        
-        <div>
-            <p>publicado: 14.06.2014, 12:14</p>
-            <h2><a href=""></a>Respect my history by phablo</h2>
-            <p>are sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
-        {% endfor %}
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}        
