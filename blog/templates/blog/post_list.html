@@ -1,6 +1,10 @@
 {% extends 'blog/base.html' %}
 
+{% load staticfiles %}
+
 {% block content %}
+
+<img src="{% static 'img/images.jpeg'%}" alt="">
     {% for post in posts %}
         <div class="post">
             <div class="date">

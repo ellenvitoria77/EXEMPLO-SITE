@@ -12,15 +12,17 @@
 
 
 <body>
-
-
+    <div class="page-header"></div>
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
     <div>
         <h1><a href="/">Congratulations</a></h1>
 
     </div>
 
     <div class="page-header">
+    {% if user.is_authenticated %}
         <h1><a href="/">Programmers</a></h1>
+    {% endif %}
     </div>
 
 
